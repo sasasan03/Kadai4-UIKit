@@ -10,21 +10,27 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var total: UILabel!
-    
+    //状態はUILabelではなく、別途プロパティを用意して管理する
+    private var count = 0
 
     @IBAction func plusOneButton(_ sender: Any)  {
-        var num = Int(total.text ?? "") ?? 0
-        num += 1
-        total.text = String(num) 
+        count += 1
+        total.text = String(count)
+//        var num = Int(total.text ?? "") ?? 0
+//        num += 1
+//        total.text = String(num)
     }
     
     @IBAction func clearButton(_ sender: Any) {
-        total.text = String("0")
+        count = 0
+        total.text = String(count)
+//        total.text = String("0")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        total.text = String(count)
     }
 
 
